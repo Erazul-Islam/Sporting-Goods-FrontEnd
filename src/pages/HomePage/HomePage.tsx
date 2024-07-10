@@ -5,13 +5,13 @@ import Featured from "./Featured";
 
 export default function HomePage() {
   return (
-    <div className="bg-gradient-to-r from-custom-purple to-custom-blue h-screen">
+    <div >
       <Carousel></Carousel>
       <Featured></Featured>
       <Contact></Contact>
-      <div className="bg-gradient-to-r from-custom-purple to-custom-blue h-screen">
+      {/* <div>
         <Footer></Footer>
-      </div>
+      </div> */}
     </div>
   )
 }
