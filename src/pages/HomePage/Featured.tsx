@@ -1,53 +1,35 @@
 import React from 'react';
 import { Card } from 'antd';
+import { useGetProductsQuery } from '../../redux/feature/ProductsApi';
 
-const Featured: React.FC = () => (
-    <div className='lg:ml-36 mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
-        <Card className='bg-gradient-to-r from-custom-blue to-custom-purple'
-            style={{ width: 340 }}
-            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-        >
-            <div>
-                <p>Name:</p>
-                <p>Category:</p>
-                <p>Stock Quantity:</p>
-                <p>Brand:</p>
-                <p>Description:</p>
-                <p>Price:</p>
-                <button>View Details</button>
-            </div>
-        </Card>
-        <Card
-            style={{ width: 340 }}
-            className='bg-gradient-to-r from-custom-blue to-custom-purple'
-            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-        >
-            <div>
-                <p>Name:</p>
-                <p>Category:</p>
-                <p>Stock Quantity:</p>
-                <p>Brand:</p>
-                <p>Description:</p>
-                <p>Price:</p>
-                <button>View Details</button>
-            </div>
-        </Card>
-        <Card
-            className='bg-gradient-to-r from-custom-blue to-custom-purple'
-            style={{ width: 340 }}
-            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-        >
-            <div>
-                <p>Name:</p>
-                <p>Category:</p>
-                <p>Stock Quantity:</p>
-                <p>Brand:</p>
-                <p>Description:</p>
-                <p>Price:</p>
-                <button>View Details</button>
-            </div>
-        </Card>
+const Featured: React.FC = () => {
+
+    const { data: products = [], isLoading } = useGetProductsQuery({});
+
+    return <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:ml-48 ">
+            {
+                products.map((item: any, index: any) => (
+                    <Card
+                        key={index}
+                        className='bg-gradient-to-r from-custom-blue to-custom-purple'
+                        style={{ width: 340 }}
+                        cover={<img className="h-44" alt={item.name} src={item.image} />}
+                    >
+                        <div className="text-white text-center">
+                            <p>Name: {item.name}</p>
+                            <p>Category: {item.category}</p>
+                            <p>Stock Quantity: {item.stock_quantity}</p>
+                            <p>Brand: {item.brand}</p>
+                            <p>Description: {item.description}</p>
+                            <p>Price: ${item.price}</p>
+                            {/* <Link to={`/products/${item._id}`}><button>View Details</button></Link> */}
+                        </div>
+                    </Card>
+                ))
+            }
+        </div>
     </div>
-);
+};
 
 export default Featured;

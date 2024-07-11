@@ -34,6 +34,13 @@ const items: MenuItem[] = [
         icon: <BorderRightOutlined />,
     },
     {
+        label: (
+            <Link to='cart'>Cart</Link>
+        ),
+        key: 'cart',
+        icon: <BorderRightOutlined />,
+    },
+    {
         label: 'Navigation Three - Submenu',
         key: 'SubMenu',
         icon: <SettingOutlined />,

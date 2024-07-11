@@ -12,6 +12,9 @@ import AllProduct from './pages/AllProduct/AllProduct';
 import Manage from './pages/ManageProduct/Manage';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import SingleProduct from './pages/SinglePage/SingleProduct';
+import Cart from './pages/CartPage/Cart';
+import CheckOut from './pages/CheckOut/CheckOut';
 
 
 
@@ -35,6 +38,19 @@ const router = createBrowserRouter([
       {
         path: '/manage',
         element: <Manage></Manage>
+      },
+      {
+        path: '/cart',
+        element: <Cart></Cart>
+      },
+      {
+        path: '/checkout',
+        element: <CheckOut></CheckOut>
+      },
+      {
+        path:'/products/:_id',
+        element: <SingleProduct></SingleProduct>,
+        loader: () => fetch(`http://localhost:5000/products`)
       }
     ]
   },

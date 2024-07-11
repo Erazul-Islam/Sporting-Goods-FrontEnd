@@ -2,6 +2,7 @@ import { Card, Input, Select, Button, Spin } from "antd";
 import { useGetProductsQuery } from "../../redux/feature/ProductsApi";
 import React, { useEffect, useState } from "react";
 import { TProduct } from "./Product.interface";
+import { Link } from "react-router-dom";
 
 
 const AllProduct: React.FC = () => {
@@ -15,13 +16,7 @@ const AllProduct: React.FC = () => {
     const [filteredProducts, setFilteredProducts] = useState<TProduct[]>(products);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 3000);
 
-        return () => clearTimeout(timer);
-    }, []);
 
     useEffect(() => {
         if (isLoading) {
@@ -70,9 +65,6 @@ const AllProduct: React.FC = () => {
     };
 
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <div>
@@ -137,7 +129,7 @@ const AllProduct: React.FC = () => {
                                 <p>Brand: {item.brand}</p>
                                 <p>Description: {item.description}</p>
                                 <p>Price: ${item.price}</p>
-                                <button>View Details</button>
+                                <Link to={`/products/${item._id}`}><button>View Details</button></Link> 
                             </div>
                         </Card>
                     ))

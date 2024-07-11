@@ -1,5 +1,5 @@
-export interface TProduct {
-    _id: number;
+export interface IProduct {
+    _id: string;
     name: string;
     category: string;
     stock_quantity: number;
@@ -7,6 +7,4 @@ export interface TProduct {
     description: string;
     price: number;
     image: string;
-    rating: number;
   }
-  
