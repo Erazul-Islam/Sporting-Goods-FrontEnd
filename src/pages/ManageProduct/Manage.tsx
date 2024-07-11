@@ -2,11 +2,75 @@ import { Button, Card, Form, Input, Modal } from "antd";
 import { useGetProductsQuery } from "../../redux/feature/ProductsApi";
 import Swal from 'sweetalert2'
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { MProduct } from "./Manage.interface";
+
+const UpdateForm = ({ _id, refetch, form, initialValues, onCancel }: {
+    _id: string,
+    refetch: () => void,
+    form: any,
+    initialValues: any,
+    onCancel: () => void
+}) => {
+
+    const onFinish = async (values: any) => {
+        try {
+
+            const updatedValues = {
+                ...initialValues,
+                ...values
+            }
+            await axios.put(`http://localhost:5000/products/${_id}`, updatedValues);
+            refetch();
+            Swal.fire({
+                icon: 'success',
+                title: 'Updated!',
+                text: 'Product updated successfully',
+            });
+        } catch (err) {
+            console.error(err);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Failed to update product',
+            });
+        }
+    };
+
+    return (
+        <Form form={form} onFinish={onFinish} initialValues={initialValues}> 
+            <Form.Item name="name" label="Name">
+                <Input />
+            </Form.Item>
+            <Form.Item name="category" label="Category">
+                <Input />
+            </Form.Item>
+            <Form.Item name="stock_quantity" label="Stock Quantity">
+                <Input />
+            </Form.Item>
+            <Form.Item name="brand" label="Brand">
+                <Input />
+            </Form.Item>
+            <Form.Item name="description" label="Description">
+                <Input.TextArea />
+            </Form.Item>
+            <Form.Item name="price" label="Price">
+                <Input />
+            </Form.Item>
+        </Form>
+    );
+};
+
+
 
 const Manage = () => {
 
 
-    const { data: products = [], isLoading, refetch } = useGetProductsQuery({});
+    const { data: products = [], refetch } = useGetProductsQuery({});
+    const [visible, setVisible] = useState(false);
+    const [currentProductId, setCurrentProductId] = useState(null);
+    const [form] = Form.useForm();
+    const [initialValues, setInitialValues] = useState({});
 
     const handleDelete = (_id: string) => {
         Swal.fire({
@@ -34,63 +98,23 @@ const Manage = () => {
         });
     }
 
-    const handleUpdate = async (_id) => {
-        // Example of handling update in a modal
-        Modal.confirm({
-            title: 'Update Product',
-            content: <UpdateForm _id={_id} refetch={refetch} />,
-            okText: 'Update',
-            cancelText: 'Cancel',
-        });
+    const handleUpdate = (_id: string) => {
+        setCurrentProductId(_id);
+        setVisible(true);
     };
 
-    console.log(handleUpdate)
-
-    const UpdateForm = ({ _id, refetch }) => {
-        const [form] = Form.useForm();
-
-        const onFinish = async (values) => {
-            try {
-                await axios.put(`http://localhost:5000/products/${_id}`, values);
-                refetch();
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Updated!',
-                    text: 'Product updated successfully',
-                });
-            } catch (err) {
-                console.error(err);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Failed to update product',
-                });
-            }
-        };
-
-        return (
-            <Form form={form} onFinish={onFinish}>
-                <Form.Item name="name" label="Name">
-                    <Input />
-                </Form.Item>
-                <Form.Item name="category" label="Category">
-                    <Input />
-                </Form.Item>
-                <Form.Item name="stock_quantity" label="Stock Quantity">
-                    <Input />
-                </Form.Item>
-                <Form.Item name="brand" label="Brand">
-                    <Input />
-                </Form.Item>
-                <Form.Item name="description" label="Description">
-                    <Input.TextArea />
-                </Form.Item>
-                <Form.Item name="price" label="Price">
-                    <Input />
-                </Form.Item>
-            </Form>
-        );
+    const handleCancel = () => {
+        setVisible(false);
+        setCurrentProductId(null);
     };
+
+    useEffect(() => {
+        if (visible && currentProductId) {
+            const product = products.find((p: MProduct) => p._id === currentProductId);
+            setInitialValues(product);
+            form.setFieldsValue(product);
+        }
+    }, [visible, currentProductId, products, form]);
 
     return (
         <div>
@@ -117,6 +141,30 @@ const Manage = () => {
                     ))
                 }
             </div>
+            <Modal
+                title="Update Product"
+                open={visible}
+                onCancel={handleCancel}
+                footer={[
+                    <Button key="back" onClick={handleCancel}>
+                        Cancel
+                    </Button>,
+                    <Button key="submit" type="primary" onClick={() => form.submit()}>
+                        Update
+                    </Button>
+                ]}
+            >
+                {/* <UpdateForm _id={currentProductId!} onCancel={handleCancel} initialValues={initialValues} form={form} refetch={refetch} /> */}
+                {currentProductId && (
+                    <UpdateForm
+                        _id={currentProductId}
+                        initialValues={initialValues}
+                        form={form}
+                        refetch={refetch}
+                        onCancel={handleCancel}
+                    />
+                )}
+            </Modal>
         </div>
     );
 };

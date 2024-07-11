@@ -20,7 +20,7 @@ const SingleProduct = () => {
 
     const handleAddToCart = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/cart', { productId: product?._id, name: product.name, category: product.category, stock_quantity: product.stock_quantity, brand: product.brand, description: product.description, price: product.price, image: product.image });
+            const response = await axios.post('http://localhost:5000/cart', { productId: product?._id , name: product.name, category: product.category, stock_quantity: product.stock_quantity, brand: product.brand, description: product.description, price: product.price, image: product.image });
             if (response.status === 200) {
                 Swal.fire({
                     title: "Great job!",
