@@ -1,23 +1,22 @@
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, animated } from '@react-spring/web';
 
-const Logo = () => {
+const InteractiveLogo = () => {
+  const [props, set] = useSpring(() => ({
+    transform: 'scale(1) rotate(0deg)',
+    config: { tension: 170, friction: 12 },
+  }));
 
-    const styles = useSpring({
-        loop: { reverse: true },
-        from: { opacity: 0, transform: 'scale(0.8) translateY(-20px)', color: '#ff69b4' },
-        to: { opacity: 1, transform: 'scale(1.2) translateY(0px)', color: '#61dafb' },
-        config: { duration: 800 },
-    });
-
-    return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#282c34' }}>
-            <animated.div style={styles}>
-                <h1 style={{ fontSize: '4rem', fontFamily: 'Arial, sans-serif', margin: 0 }}>
-                    Apex Athletic Co.
-                </h1>
-            </animated.div>
-        </div>
-    );
+  return (
+    <animated.div
+      className="p-3 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 rounded-full shadow-2xl text-center cursor-pointer transform-gpu"
+      onMouseEnter={() => set({ transform: 'scale(1.2) rotate(360deg)' })}
+      onMouseLeave={() => set({ transform: 'scale(1) rotate(0deg)' })}
+      style={props}
+    >
+      <span className="block text-white text-2xl font-pacifico">Taosif Sporting Store</span>
+      {/* <span className="block text-white text-1xl font-pacifico font-semibold mt-4">Sporting Store</span> */}
+    </animated.div>
+  );
 };
 
-export default Logo;
+export default InteractiveLogo;

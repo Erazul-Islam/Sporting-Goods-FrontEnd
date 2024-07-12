@@ -9,7 +9,10 @@ export default {
       colors: {
         'custom-purple': '#9b0372',
         'custom-blue': '#0b8fc0',
-        'custom-button':'#cc115c'
+        'custom-button': '#cc115c'
+      },
+      fontFamily: {
+        pacifico: ['Pacifico', 'cursive'],
       },
     },
   },

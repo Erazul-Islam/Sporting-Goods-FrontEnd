@@ -2,16 +2,11 @@ import { AppstoreOutlined, BorderRightOutlined, HomeOutlined, SettingOutlined } 
 import { Menu, MenuProps } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../Logo/Logo";
 
 
 type MenuItem = Required<MenuProps>['items'][number];
 
 const items: MenuItem[] = [
-    // {
-    //     label: <Logo></Logo>,
-    //     key: '/',
-    // },
     {
         label: (
             <Link to='/'>Home</Link>

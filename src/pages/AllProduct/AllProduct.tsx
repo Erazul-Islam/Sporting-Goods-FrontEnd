@@ -3,8 +3,8 @@ import { useGetProductsQuery } from "../../redux/feature/ProductsApi";
 import React, { useEffect, useState } from "react";
 import { TProduct } from "./Product.interface";
 import { Link } from "react-router-dom";
-
-
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 const AllProduct: React.FC = () => {
 
     const { Search } = Input;
@@ -86,6 +86,11 @@ const AllProduct: React.FC = () => {
                         <Option value="Cricket">Cricket</Option>
                         <Option value="Basketball">Basketball</Option>
                         <Option value="Tennis">Tennis</Option>
+                        <Option value="Running">Running</Option>
+                        <Option value="Outdoor">Outdoor</Option>
+                        <Option value="Swimming">Swimming</Option>
+                        <Option value="Golf">Golf</Option>
+                        <Option value="Baseball">Baseball</Option>
                     </Select>
                     <Select
                         placeholder="Select Brand"
@@ -120,7 +125,11 @@ const AllProduct: React.FC = () => {
                             key={index}
                             className='bg-gradient-to-r from-custom-blue to-custom-purple'
                             style={{ width: 340 }}
-                            cover={<img className="h-44" alt={item.name} src={item.image} />}
+                            cover={<PhotoProvider>
+                                <PhotoView src={item.image}>
+                                    <img className="h-44" alt={item.name} src={item.image} />
+                                </PhotoView>
+                            </PhotoProvider>}
                         >
                             <div className="text-white text-center">
                                 <p>Name: {item.name}</p>
@@ -129,7 +138,9 @@ const AllProduct: React.FC = () => {
                                 <p>Brand: {item.brand}</p>
                                 <p>Description: {item.description}</p>
                                 <p>Price: ${item.price}</p>
-                                <Link to={`/products/${item._id}`}><button>View Details</button></Link> 
+                                <Link to={`/products/${item._id}`}><button className="relative overflow-hidden transition duration-300 ease-in-out bg-green-500 text-white px-6 py-3 text-lg font-semibold rounded-md focus:outline-none">
+                                    View Details
+                                </button></Link>
                             </div>
                         </Card>
                     ))

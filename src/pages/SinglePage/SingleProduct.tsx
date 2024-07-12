@@ -9,7 +9,7 @@ const SingleProduct = () => {
 
     const { _id } = useParams()
 
-    const { data: products = [], isLoading } = useGetProductsQuery({})
+    const { data: products = []} = useGetProductsQuery({})
 
     const [product, setProduct] = useState({})
 

@@ -1,7 +1,6 @@
 import { Button, Card, Form, Input, Modal } from "antd";
-import { useGetProductsQuery } from "../../redux/feature/ProductsApi";
+import { useCreateProductMutation, useDeleteProductMutation, useGetProductsQuery, useUpdateProductMutation } from "../../redux/feature/ProductsApi";
 import Swal from 'sweetalert2'
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { MProduct } from "./Manage.interface";
 
@@ -13,6 +12,8 @@ const UpdateForm = ({ _id, refetch, form, initialValues, onCancel }: {
     onCancel: () => void
 }) => {
 
+    const [updateProduct] = useUpdateProductMutation();
+
     const onFinish = async (values: any) => {
         try {
 
@@ -20,7 +21,7 @@ const UpdateForm = ({ _id, refetch, form, initialValues, onCancel }: {
                 ...initialValues,
                 ...values
             }
-            await axios.put(`http://localhost:5000/products/${_id}`, updatedValues);
+            await updateProduct({ id: _id, ...updatedValues }).unwrap();
             refetch();
             Swal.fire({
                 icon: 'success',
@@ -38,7 +39,7 @@ const UpdateForm = ({ _id, refetch, form, initialValues, onCancel }: {
     };
 
     return (
-        <Form form={form} onFinish={onFinish} initialValues={initialValues}> 
+        <Form form={form} onFinish={onFinish} initialValues={initialValues}>
             <Form.Item name="name" label="Name">
                 <Input />
             </Form.Item>
@@ -62,6 +63,38 @@ const UpdateForm = ({ _id, refetch, form, initialValues, onCancel }: {
 };
 
 
+const CreateProductForm = ({ form, onFinish }: {
+    form: any,
+    onFinish: (values: any) => void
+}) => {
+    return (
+        <Form form={form} onFinish={onFinish}>
+            <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+                <Input />
+            </Form.Item>
+            <Form.Item name="category" label="Category" rules={[{ required: true }]}>
+                <Input />
+            </Form.Item>
+            <Form.Item name="stock_quantity" label="Stock Quantity" rules={[{ required: true }]}>
+                <Input />
+            </Form.Item>
+            <Form.Item name="brand" label="Brand" rules={[{ required: true }]}>
+                <Input />
+            </Form.Item>
+            <Form.Item name="description" label="Description" rules={[{ required: true }]}>
+                <Input.TextArea />
+            </Form.Item>
+            <Form.Item name="price" label="Price" rules={[{ required: true }]}>
+                <Input />
+            </Form.Item>
+            <Form.Item name="image" label="Image URL" rules={[{ required: true }]}>
+                <Input />
+            </Form.Item>
+        </Form>
+    );
+};
+
+
 
 const Manage = () => {
 
@@ -71,6 +104,10 @@ const Manage = () => {
     const [currentProductId, setCurrentProductId] = useState(null);
     const [form] = Form.useForm();
     const [initialValues, setInitialValues] = useState({});
+    const [createVisible, setCreateVisible] = useState(false)
+    const [createForm] = Form.useForm();
+    const [createProduct] = useCreateProductMutation();
+    const [deleteProduct] = useDeleteProductMutation();
 
     const handleDelete = (_id: string) => {
         Swal.fire({
@@ -84,7 +121,7 @@ const Manage = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 try {
-                    axios.delete(`http://localhost:5000/products/${_id}`)
+                    deleteProduct(_id)
                     Swal.fire({
                         title: "Deleted!",
                         text: "You successfully delete the product",
@@ -108,6 +145,31 @@ const Manage = () => {
         setCurrentProductId(null);
     };
 
+    const handleCreateCancel = () => {
+        setCreateVisible(false);
+        createForm.resetFields();
+    };
+
+    const handleCreateFinish = async (values: any) => {
+        try {
+            await createProduct(values).unwrap();
+            refetch();
+            Swal.fire({
+                icon: 'success',
+                title: 'Created!',
+                text: 'Product created successfully',
+            });
+            handleCreateCancel();
+        } catch (err) {
+            console.error(err);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Failed to create product',
+            });
+        }
+    };
+
     useEffect(() => {
         if (visible && currentProductId) {
             const product = products.find((p: MProduct) => p._id === currentProductId);
@@ -118,6 +180,7 @@ const Manage = () => {
 
     return (
         <div>
+            <Button onClick={() => setCreateVisible(true)}>Create Product</Button>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:ml-48 ">
                 {
                     products.map((item: any, index: any) => (
@@ -154,16 +217,22 @@ const Manage = () => {
                     </Button>
                 ]}
             >
-                {/* <UpdateForm _id={currentProductId!} onCancel={handleCancel} initialValues={initialValues} form={form} refetch={refetch} /> */}
-                {currentProductId && (
-                    <UpdateForm
-                        _id={currentProductId}
-                        initialValues={initialValues}
-                        form={form}
-                        refetch={refetch}
-                        onCancel={handleCancel}
-                    />
-                )}
+                <UpdateForm _id={currentProductId!} onCancel={handleCancel} initialValues={initialValues} form={form} refetch={refetch} />
+            </Modal>
+            <Modal
+                title="Create Product"
+                open={createVisible}
+                onCancel={handleCreateCancel}
+                footer={[
+                    <Button key="back" onClick={handleCreateCancel}>
+                        Cancel
+                    </Button>,
+                    <Button key="submit" type="primary" onClick={() => createForm.submit()}>
+                        Create
+                    </Button>
+                ]}
+            >
+                <CreateProductForm form={createForm} onFinish={handleCreateFinish} />
             </Modal>
         </div>
     );
