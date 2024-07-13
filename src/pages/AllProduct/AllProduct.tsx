@@ -67,7 +67,8 @@ const AllProduct: React.FC = () => {
 
 
     return (
-        <div>
+        <div className="bg-gradient-to-r from-custom-purple to-custom-blue">
+            <h1 className="text-5xl font-extrabold text-center  mt-8 mb-8 font-Sofia text-white">All Products</h1>
             <div className="text-center">
                 <Search
                     placeholder="Search for products"
@@ -116,14 +117,15 @@ const AllProduct: React.FC = () => {
                     <Button onClick={clearFilters}>Clear Filters</Button>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:ml-48 ">
+            
+            <div className="grid grid-cols-1 mt-8  md:grid-cols-2 lg:grid-cols-4 gap-8 lg:ml-40 ">
                 {loading ? (
                     <Spin className="text-center items-center " size="large" style={{ margin: 'auto' }} />
                 ) :
                     filteredProducts.map((item, index) => (
                         <Card
                             key={index}
-                            className='bg-gradient-to-r from-custom-blue to-custom-purple'
+                            className='bg-gradient-to-r rounded-tl-[50px]  from-custom-blue to-custom-purple'
                             style={{ width: 340 }}
                             cover={<PhotoProvider>
                                 <PhotoView src={item.image}>
@@ -138,7 +140,7 @@ const AllProduct: React.FC = () => {
                                 <p>Brand: {item.brand}</p>
                                 <p>Description: {item.description}</p>
                                 <p>Price: ${item.price}</p>
-                                <Link to={`/products/${item._id}`}><button className="relative overflow-hidden transition duration-300 ease-in-out bg-green-500 text-white px-6 py-3 text-lg font-semibold rounded-md focus:outline-none">
+                                <Link to={`/products/${item._id}`}><button className="rounded-tr-[25px] w-24 rounded-bl-[25px] text-white h-10 mt-4 bg-custom-button">
                                     View Details
                                 </button></Link>
                             </div>

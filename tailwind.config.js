@@ -9,10 +9,19 @@ export default {
       colors: {
         'custom-purple': '#9b0372',
         'custom-blue': '#0b8fc0',
-        'custom-button': '#cc115c'
+        'custom-button': '#cc115c',
+        customBlue: {
+          100: '#cce7ff',
+          200: '#99ceff',
+          300: '#66b6ff',
+          400: '#339dff',
+          500: '#0085ff',
+        },
       },
       fontFamily: {
         pacifico: ['Pacifico', 'cursive'],
+        Sofia: ["Sofia", 'sans-serif'],
+        Merriweather: ['Merriweather', 'cursive']
       },
     },
   },
