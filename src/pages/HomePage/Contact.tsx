@@ -31,7 +31,7 @@ const Contact = () => {
                         <h2 className="text-white font-Sofia text-3xl">Career at Seven Creative</h2>
                     </div>
                 </div>
-                <div className="mt-8 bg-custom-purple w-2/4 pl-16 pt-7 pb-7 rounded-tl-[50px] rounded-br-[50px] ">
+                <div className="mt-8 bg-custom-purple w-2/4 pl-16 pt-7 pb-7 rounded-tl-[50px] rounded-br-[50px]">
                     <h1 className="text-3xl font-Merriweather text-white">Make an online enquiry</h1>
                     <h2 className="text-xl mt-8 font-Merriweather text-white">Got questions? Ideas? Fill out the form below to get our proposal.</h2>
                     <div className="flex mt-8 gap-8">

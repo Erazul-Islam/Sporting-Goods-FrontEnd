@@ -15,6 +15,7 @@ import store from './redux/store';
 import SingleProduct from './pages/SinglePage/SingleProduct';
 import Cart from './pages/CartPage/Cart';
 import CheckOut from './pages/CheckOut/CheckOut';
+import Success from './pages/Success/Success';
 
 
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/checkout',
         element: <CheckOut></CheckOut>
+      },
+      {
+        path: '/success',
+        element: <Success></Success>
       },
       {
         path:'/products/:_id',

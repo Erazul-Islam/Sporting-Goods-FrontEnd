@@ -43,7 +43,7 @@ const Featured: React.FC = () => {
 
     return <div>
         <h1 className="text-5xl font-extrabold text-center mb-8 mt-8 font-Sofia text-white">Featured</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:ml-48">
+        <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:ml-48">
             {products.map((item: any, index: any) => (
                 <animated.div
                     key={index}
