@@ -9,6 +9,7 @@ export default function HomePage() {
     <div >
       <div className="flex mt-8 lg:ml-8 justify-center  md:justify-center lg:justify-between">
         <InteractiveLogo />
+        
       </div>
       <Carousel></Carousel>
       <Featured></Featured>

@@ -180,7 +180,8 @@ const Manage = () => {
 
     return (
         <div>
-            <Button onClick={() => setCreateVisible(true)}>Create Product</Button>
+            <h1 className="text-5xl font-extrabold text-center  font-Sofia text-white">Manage</h1>
+            <Button className="lg:ml-96 lg:mt-14 mb-12" onClick={() => setCreateVisible(true)}>Create Product</Button>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:ml-48 ">
                 {
                     products.map((item: any, index: any) => (
@@ -197,8 +198,8 @@ const Manage = () => {
                                 <p>Brand: {item.brand}</p>
                                 <p>Description: {item.description}</p>
                                 <p>Price: ${item.price}</p>
-                                <Button onClick={() => handleDelete(item._id)}>Delete</Button>
-                                <Button onClick={() => handleUpdate(item._id)}>Update</Button>
+                                <Button className="rounded-tr-[25px] w-24 rounded-bl-[25px] text-white h-10 mt-4 bg-custom-button" onClick={() => handleDelete(item._id)}>Delete</Button>
+                                <Button className="rounded-tr-[25px] ml-2 w-24 rounded-bl-[25px] text-white h-10 mt-4 bg-custom-button" onClick={() => handleUpdate(item._id)}>Update</Button>
                             </div>
                         </Card>
                     ))
@@ -212,7 +213,7 @@ const Manage = () => {
                     <Button key="back" onClick={handleCancel}>
                         Cancel
                     </Button>,
-                    <Button key="submit" type="primary" onClick={() => form.submit()}>
+                    <Button className="rounded-tr-[25px] w-24 rounded-bl-[25px] text-white h-10 mt-4 bg-custom-button" key="submit" type="primary" onClick={() => form.submit()}>
                         Update
                     </Button>
                 ]}
@@ -227,7 +228,7 @@ const Manage = () => {
                     <Button key="back" onClick={handleCreateCancel}>
                         Cancel
                     </Button>,
-                    <Button key="submit" type="primary" onClick={() => createForm.submit()}>
+                    <Button className="rounded-tr-[25px] w-24 rounded-bl-[25px] text-white h-10 mt-4 bg-custom-button" key="submit" type="primary" onClick={() => createForm.submit()}>
                         Create
                     </Button>
                 ]}

@@ -2,19 +2,20 @@ import { Card, Input, Select, Button, Spin } from "antd";
 import { useGetProductsQuery } from "../../redux/feature/ProductsApi";
 import React, { useEffect, useState } from "react";
 import { TProduct } from "./Product.interface";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import Spinner from "../../components/Logo/Spinner";
 const AllProduct: React.FC = () => {
 
     const { Search } = Input;
     const { Option } = Select;
-
     const { data: products = [], isLoading } = useGetProductsQuery({});
     const [searchQuery, setSearchQuery] = useState('');
     const [filters, setFilters] = useState({ category: '', brand: '', price: '', rating: '' });
     const [filteredProducts, setFilteredProducts] = useState<TProduct[]>(products);
     const [loading, setLoading] = useState(true);
+    const location = useLocation()
 
 
 
@@ -29,6 +30,12 @@ const AllProduct: React.FC = () => {
             return () => clearTimeout(timer);
         }
     }, [isLoading]);
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const category = params.get('category') || '';
+        setFilters(filters => ({ ...filters, category }));
+    }, [location.search]);
 
     useEffect(() => {
         setLoading(true);
@@ -87,10 +94,7 @@ const AllProduct: React.FC = () => {
                         <Option value="Cricket">Cricket</Option>
                         <Option value="Basketball">Basketball</Option>
                         <Option value="Tennis">Tennis</Option>
-                        <Option value="Running">Running</Option>
-                        <Option value="Outdoor">Outdoor</Option>
-                        <Option value="Swimming">Swimming</Option>
-                        <Option value="Golf">Golf</Option>
+                        <Option value="FootBall">FootBall</Option>
                         <Option value="Baseball">Baseball</Option>
                     </Select>
                     <Select
@@ -117,10 +121,12 @@ const AllProduct: React.FC = () => {
                     <Button onClick={clearFilters}>Clear Filters</Button>
                 </div>
             </div>
-            
+
             <div className="grid grid-cols-1 mt-8  md:grid-cols-2 lg:grid-cols-4 gap-8 lg:ml-40 ">
                 {loading ? (
-                    <Spin className="text-center items-center " size="large" style={{ margin: 'auto' }} />
+                    <div className="block ml-auto mr-auto">
+                        <Spinner></Spinner>
+                    </div>
                 ) :
                     filteredProducts.map((item, index) => (
                         <Card

@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGetlatestProductsQuery } from '../../redux/feature/ProductsApi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { animated, useSprings } from '@react-spring/web';
+import { TProduct } from '../AllProduct/Product.interface';
+import { Select } from 'antd';
 
 const Featured: React.FC = () => {
 
-    const { data: products = [] } = useGetlatestProductsQuery({});
+    const { data: products = [], isLoading } = useGetlatestProductsQuery({});
     const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+    const [filters, setFilters] = useState({ category: '' });
+    const [filteredProducts, setFilteredProducts] = useState<TProduct[]>(products);
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate()
+
+
+    useEffect(() => {
+        if (isLoading) {
+            setLoading(true);
+        } else {
+            const timer = setTimeout(() => {
+                setLoading(false);
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [isLoading]);
+
+    useEffect(() => {
+        setLoading(true);
+        const timer = setTimeout(() => {
+            let filtered = products
+                .filter((product: TProduct) => (filters.category ? product.category === filters.category : true))
+            setFilteredProducts(filtered);
+            setLoading(false);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, [products, filters]);
 
     const [springs, api] = useSprings(products.length, index => ({
         transform: 'scale(1) rotate(0deg)',
@@ -15,6 +46,10 @@ const Featured: React.FC = () => {
         transformContent: 'translateY(10px)',
         config: { tension: 300, friction: 10 },
     }));
+
+    const handleFilterChange = (name: string, value: string) => {
+        setFilters({ ...filters, [name]: value });
+    };
 
     React.useEffect(() => {
         if (hoveredIndex !== null) {
@@ -40,10 +75,14 @@ const Featured: React.FC = () => {
         }
     }, [hoveredIndex, api]);
 
+    const handleCategoryClick = (category: string) => {
+        navigate(`/all-products?category=${category}`)
+    }
+
 
     return <div>
         <h1 className="text-5xl font-extrabold text-center mb-8 mt-8 font-Sofia text-white">Featured</h1>
-        <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:ml-48">
+        <div data-aos="fade-up-right" data-aos-duration="1000" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:ml-48">
             {products.map((item: any, index: any) => (
                 <animated.div
                     key={index}
@@ -87,6 +126,18 @@ const Featured: React.FC = () => {
                 </animated.div>
             ))}
         </div>
+        <Select
+            placeholder="Select Category"
+            onChange={(value) => handleCategoryClick(value)}
+            value={filters.category}
+            style={{ width: 150, marginRight: 10 }}>
+            <Select.Option value="">All Categories</Select.Option>
+            <Select.Option value="Cricket">Cricket</Select.Option>
+            <Select.Option value="Basketball">Basketball</Select.Option>
+            <Select.Option value="Tennis">Tennis</Select.Option>
+            <Select.Option value="Baseball">Baseball</Select.Option>
+            <Select.Option value="Football">FootBall</Select.Option>
+        </Select>
     </div>
 };
 

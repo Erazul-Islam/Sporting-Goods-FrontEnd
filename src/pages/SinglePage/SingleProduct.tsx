@@ -1,4 +1,4 @@
-import { Button, Card } from "antd";
+import { Button } from "antd";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";

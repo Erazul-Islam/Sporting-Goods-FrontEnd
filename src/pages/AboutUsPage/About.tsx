@@ -11,10 +11,19 @@ export default function About() {
               Peak Performance Sports specializes in providing high-quality <br /> sporting goods and equipment to athletes and sports enthusiasts of all levels. <br />
               Our range includes gear for various sports such as football, <br /> basketball, tennis, running, and outdoor activities.</h2>
           </div>
-          <img className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/5YLsNKz/premium-photo-1687509673996-0b9e35d58168.jpg" alt="" />
+          <img data-aos="fade-left" data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-mirror="true"
+            data-aos-once="false" className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/5YLsNKz/premium-photo-1687509673996-0b9e35d58168.jpg" alt="" />
         </div>
         <div className="mt-11 lg:flex lg:justify-between">
-          <img className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/sHqRf1T/like.jpg" alt="" />
+          <img data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos="fade-right" className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/sHqRf1T/like.jpg" alt="" />
           <div className="pt-24">
             <p className="text-3xl font-bold text-right text-white">Mission Statement:</p>
             <h2 className="font-bold pt-7 text-right text-white">
@@ -23,16 +32,21 @@ export default function About() {
         </div>
         <div>
           <p className="text-3xl mt-4 font-bold text-center text-white">Vision Statement:</p>
-          <img className="rounded-tl-3xl mt-14 block ml-auto mr-auto rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/fGTyQRB/mission.jpg" alt="" />
+          <img data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos="zoom-in" className="rounded-tl-3xl mt-14 block ml-auto mr-auto rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/fGTyQRB/mission.jpg" alt="" />
           <h2 className="font-bold mt-8 text-center text-white">
             To be the leading provider of innovative and reliable sporting equipment, empowering individuals to achieve their highest potential in sports and fitness.</h2>
         </div>
         <h1 className="text-center text-3xl text-white mt-8">Our Team Section:</h1>
         <div className="flex mr-12 gap-8">
-          <img className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/DGV1QJk/te08.webp" alt="" />
-          <img className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/DftjWXq/te06.webp" alt="" />
-          <img className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/Z6LH5N2/te01.webp" alt="" />
-          <img className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/LPBygrT/te03.jpg" alt="" />
+          <img data-aos="fade-up-right" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/DGV1QJk/te08.webp" alt="" />
+          <img data-aos="fade-up-left" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/DftjWXq/te06.webp" alt="" />
+          <img data-aos="fade-down-right" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/Z6LH5N2/te01.webp" alt="" />
+          <img data-aos="fade-down-left" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/LPBygrT/te03.jpg" alt="" />
         </div>
         <div className="mt-11 lg:flex lg:justify-between">
           <div className="pt-24">
@@ -48,10 +62,16 @@ export default function About() {
               Emily’s dedication to customer satisfaction ensures that every client receives the best service possible. She oversees our support team and handles customer inquiries and feedback.
             </div>
           </div>
-          <img className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/XjR2MbZ/premium-photo-1677529496297-fd0174d65941.jpg" alt="" />
+          <img data-aos-offset="200"
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1500" className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/XjR2MbZ/premium-photo-1677529496297-fd0174d65941.jpg" alt="" />
         </div>
         <div className="mt-11 lg:flex lg:justify-between">
-          <img className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/rHFVWmW/store1661964205360-b0621b5a9366.jpg" alt="" />
+          <img data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-sine" className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/rHFVWmW/store1661964205360-b0621b5a9366.jpg" alt="" />
           <div className="pt-24">
             <div className="text-white text-right">
               Our Store Location Information: <br />
