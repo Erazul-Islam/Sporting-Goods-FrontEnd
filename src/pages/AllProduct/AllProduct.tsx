@@ -122,7 +122,7 @@ const AllProduct: React.FC = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 mt-8  md:grid-cols-2 lg:grid-cols-4 gap-8 lg:ml-40 ">
+            <div className="grid grid-cols-1 mt-8  md:grid-cols-2 lg:grid-cols-4 gap-8 md:ml-20 ml-20 lg:ml-40 ">
                 {loading ? (
                     <div className="block ml-auto mr-auto">
                         <Spinner></Spinner>

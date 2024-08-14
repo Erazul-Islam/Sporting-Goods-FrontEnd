@@ -182,7 +182,7 @@ const Manage = () => {
         <div>
             <h1 className="text-5xl font-extrabold text-center  font-Sofia text-white">Manage</h1>
             <Button className="lg:ml-96 lg:mt-14 mb-12" onClick={() => setCreateVisible(true)}>Create Product</Button>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:ml-48 ">
+            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:ml-24 ml-24 lg:ml-48 ">
                 {
                     products.map((item: any, index: any) => (
                         <Card

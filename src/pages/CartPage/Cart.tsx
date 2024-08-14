@@ -49,8 +49,8 @@ const Cart = () => {
     return (
         <div>
             <h1 className="text-white text-center mt-8 mb-8 text-3xl font-Sofia">Your added product</h1>
-            <div className="flex justify-between">
-                <div className="grid grid-cols-1 mt-7 mb-12 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:ml-48 ">
+            <div className="lg:flex justify-between">
+                <div className="grid grid-cols-1 mt-7 mb-12 md:grid-cols-2 lg:grid-cols-3 gap-8 ml-24 lg:ml-48 ">
                     {
                         products.map((item: any, index: any) => (
                             <Card
@@ -73,9 +73,9 @@ const Cart = () => {
                         ))
                     }
                 </div>
-                <div className="bg-custom-purple rounded-tl-[50px] rounded-br-[50px] md:w-60 md:mr-56 md:mt-28 md:h-56 ">
+                <div className="bg-custom-purple rounded-tl-[50px] rounded-br-[50px] w-72 ml-28 md:w-60 md:mr-56 md:mt-28 md:h-56 ">
                     <div className="pl-8 pt-8 text-white font-Merriweather">
-                        <h1>Quantity: {quantity}</h1>
+                        <h1>Total Quantity: {quantity}</h1>
                         <h1 className="mt-4">Total Price: ${Number(totalPrice).toFixed(2)} </h1>
                         <h1 className="mt-4">price After VAT: {Number(priceAfterVat).toFixed(2)}</h1>
                         <Link to={`/checkout`}><Button className="mt-4 rounded-tr-[25px] w-24 rounded-bl-[25px] text-white h-10 bg-custom-button" >Proceed</Button></Link>

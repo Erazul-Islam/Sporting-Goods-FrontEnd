@@ -32,12 +32,12 @@ const Footer: React.FC = () => {
                 </div>
                 <animated.div style={linksProps} className=" lg:ml-56 items-center text-xl">
                     <h1 className='text-white font-Sofia text-2xl'>Company</h1>
-                    <a href="#" className="text-white mt-6 hover:text-gray-400 mx-2">Home</a> <br />
-                    <a href="#" className="text-white mt-3 hover:text-gray-400 mx-2">About</a> <br />
-                    <a href="#" className="text-white mt-3 hover:text-gray-400 mx-2">Contact</a> <br />
-                    <a href="#" className="text-white mt-3 hover:text-gray-400 mx-2">All Product</a> <br />
-                    <a href="#" className="text-white mt-3 hover:text-gray-400 mx-2">Cart</a> <br />
-                    <a href="#" className="text-white mt-3 hover:text-gray-400 mx-2">Manage</a> <br />
+                    <a href="/home" className="text-white mt-3 hover:text-gray-400 mx-2">Home</a> <br />
+                    <a href="/about" className="text-white mt-3 hover:text-gray-400 mx-2">About</a> <br />
+                    <a href="/contact" className="text-white mt-3 hover:text-gray-400 mx-2">Contact</a> <br />
+                    <a href="/all-product" className="text-white mt-3 hover:text-gray-400 mx-2">All Product</a> <br />
+                    <a href="/cart" className="text-white mt-3 hover:text-gray-400 mx-2">Cart</a> <br />
+                    <a href="/manage" className="text-white mt-3 hover:text-gray-400 mx-2">Manage</a> <br />
                 </animated.div>
                 <animated.div style={linksProps} className=" items-center text-xl">
                     <h1 className='text-white font-Sofia text-2xl'>Product</h1>
