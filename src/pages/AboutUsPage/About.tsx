@@ -15,7 +15,7 @@ export default function About() {
             data-aos-delay="50"
             data-aos-duration="1000"
             data-aos-mirror="true"
-            data-aos-once="false" className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/5YLsNKz/premium-photo-1687509673996-0b9e35d58168.jpg" alt="" />
+            data-aos-once="false" className="rounded-tl-3xl rounded-tr-none rounded-br-3xl rounded-l-none rounded-r-none" src="https://i.ibb.co/W5J6Bnt/download-21.jpg" alt="" />
         </div>
         <div className="mt-11 lg:flex lg:justify-between">
           <img data-aos-offset="200"
@@ -43,10 +43,10 @@ export default function About() {
         </div>
         <h1 className="text-center text-3xl text-white mt-8">Our Team Section:</h1>
         <div className="flex mr-12 gap-8">
-          <img data-aos="fade-up-right" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/DGV1QJk/te08.webp" alt="" />
-          <img data-aos="fade-up-left" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/DftjWXq/te06.webp" alt="" />
-          <img data-aos="fade-down-right" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/Z6LH5N2/te01.webp" alt="" />
-          <img data-aos="fade-down-left" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/LPBygrT/te03.jpg" alt="" />
+          <img data-aos="fade-up-right" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/qWB8pws/te08.webp" alt="" />
+          <img data-aos="fade-up-left" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/1mRS95P/te06.webp" alt="" />
+          <img data-aos="fade-down-right" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/HDm1T8z/te01.webp" alt="" />
+          <img data-aos="fade-down-left" data-aos-duration="1000" className="rounded-tl-[50px] w-1/4 h-1/4 mt-14 rounded-tr-none rounded-br-[50px] rounded-l-none rounded-r-none" src="https://i.ibb.co/ykwFsvs/te02.webp" alt="" />
         </div>
         <div className="mt-11 lg:flex lg:justify-between">
           <div className="pt-24">

@@ -64,11 +64,11 @@ const SingleProduct = () => {
 
 
     return (
-        <div className="h-screen">
+        <div >
             <h1 className="text-5xl font-extrabold text-center mt-12 mb-12 font-Sofia text-white">Product Details</h1>
             <div className="mt-8 md:ml-[500px] ml-[50px] bg-custom-purple lg:w-2/4 pl-16 pt-7 pb-7 rounded-tl-[50px] rounded-br-[50px]">
                 <div>
-                    <img className="block ml-auto mr-auto md:w-2/3 rounded-tr-[50px] rounded-bl-[50px] " src={product?.image} alt="" />
+                    <img className=" ml-auto mr-auto md:w-2/3 rounded-tr-[50px] rounded-bl-[50px] " src={product?.image} alt="" />
 
                     <div className="text-white text-left">
                         <div className="flex mt-8 pl-32 pr-32 justify-between">

@@ -14,7 +14,7 @@ const App: React.FC = () => (
   <Carousel className='mt-14' autoplay>
     <div>
       <h3 className='relative' style={contentStyle}>
-        <img className='w-full ' src="https://i.ibb.co/X52LXjf/7a1e72d87b38f1e906fc04e1098ae6c289c2cd6e-2000x694.webp" alt="" />
+        <img className='w-full ' src="https://i.ibb.co/fCncKG0/923dbacdcd488118c4871af8b9ad9a2bb193ea96-2000x694.webp" alt="" />
         <p className='absolute md:text-4xl right-6 lg:right-16 font-bold bottom-1/3 md:bottom-1/2'>UP To 60% OFF <br /> <p className='font-thin md:text-3xl'>PRIVATE SALE IS ON</p>
           <br /> <p className='font-thin md:text-3xl'>NO CODE NEDDED. EXCLUSIONS APPLY</p></p>
       </h3>

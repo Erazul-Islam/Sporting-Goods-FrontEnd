@@ -8,8 +8,7 @@ export default function HomePage() {
   return (
     <div >
       <div className="flex mt-8 lg:ml-8 justify-center  md:justify-center lg:justify-between">
-        <InteractiveLogo />
-        
+        <InteractiveLogo />   
       </div>
       <Carousel></Carousel>
       <Featured></Featured>

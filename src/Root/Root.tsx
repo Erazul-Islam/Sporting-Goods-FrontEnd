@@ -6,7 +6,6 @@ const Root = () => {
     return (
         <div className="bg-gradient-to-r from-custom-purple to-custom-blue">
             <NavBar></NavBar>
-            {/* <Navbar></Navbar> */}
             <Outlet></Outlet>
         </div>
     );
