@@ -1,8 +1,27 @@
-# React + Vite
+                                                                                    Welcome
+This is mainly a sporting goods selling project where I integrate a customized backend. Though the backend is single page application, but it works perfectly.
+## Client side
+In client side I am using react, a javascript library.
+For disign, I used Antdesign. The main purpose of the project is to improve the ui ux design of mine.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Client side, I used
+  - React
+  - Typescript
+  - Ant design
+  - Tailwind css
+  - Npm packages
 
-Currently, two official plugins are available:
+Backend 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  - node js
+  - express js
+  - mongodb
+
+Features 
+  This is a e-commerce website. The purpose of the site is to sell sporting goods of different types of game.
+
+  - Create product
+  - Edit product
+  - Delete product
+  - Sort product
+  - Search product
